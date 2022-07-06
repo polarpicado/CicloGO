@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/fondo_inicio">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prueba de Joao"
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="226dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/boton_inicial_personalizado"
+        android:backgroundTint="#00ACD7"
+        android:fontFamily="@font/droidsans"
+        android:textStyle="bold"
+        android:text="REGISTRARSE"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="226dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/boton_inicial_personalizado"
+        android:backgroundTint="#00ACD7"
+        android:fontFamily="@font/droidsans"
+        android:textStyle="bold"
+        android:text="INICIAR SESIÓN"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
