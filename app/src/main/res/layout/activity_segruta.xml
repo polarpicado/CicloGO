@@ -26,11 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
+            android:background="@drawable/radio_selector"
+            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Segura"
-            android:background="@drawable/radio_selector"
-            tools:layout_editor_absoluteX="26dp"
             android:textColor="@drawable/text_color"
+            tools:layout_editor_absoluteX="26dp"
             tools:layout_editor_absoluteY="70dp" />
 
         <RadioButton
@@ -38,10 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
+            android:background="@drawable/radio_selector"
+            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Regular"
             android:textColor="@drawable/text_color"
-            android:background="@drawable/radio_selector"
             tools:layout_editor_absoluteX="263dp"
             tools:layout_editor_absoluteY="70dp" />
 
@@ -50,10 +52,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
+            android:background="@drawable/radio_selector"
+            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Peligrosa"
             android:textColor="@drawable/text_color"
-            android:background="@drawable/radio_selector"
             tools:layout_editor_absoluteX="142dp"
             tools:layout_editor_absoluteY="70dp" />
     </RadioGroup>
@@ -81,6 +84,7 @@
         android:ems="10"
         android:hint="Ingrese el nombre de la ruta"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rd_segruta" />
