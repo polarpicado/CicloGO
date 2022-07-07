@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "686823480150",
+    "firebase_url": "https://final-clase-default-rtdb.firebaseio.com",
+    "project_id": "final-clase",
+    "storage_bucket": "final-clase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686823480150:android:94888fdd739a042ddad4f7",
+        "android_client_info": {
+          "package_name": "com.joao.ciclogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686823480150-8fqd6isuhhd1ojiir1stjnr64ecbo37d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiU8BYjTdPXeNyQ2naggyDHl8pdiiMzvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686823480150-8fqd6isuhhd1ojiir1stjnr64ecbo37d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
