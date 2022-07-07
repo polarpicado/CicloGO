@@ -3,7 +3,6 @@ plugins {
 }
 
 apply plugin: 'com.google.gms.google-services'
-
 android {
     compileSdk 32
 
@@ -40,4 +39,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
     implementation 'com.google.firebase:firebase-auth:21.0.5'
+
 }

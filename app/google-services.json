@@ -1,8 +1,10 @@
 {
   "project_info": {
+
     "project_number": "947667236306",
     "project_id": "ciclogo-56ff1",
     "storage_bucket": "ciclogo-56ff1.appspot.com"
+
   },
   "client": [
     {
@@ -14,20 +16,25 @@
       },
       "oauth_client": [
         {
+
           "client_id": "947667236306-42o7m8n8ak9khjvtu0u7cn56e47fvk41.apps.googleusercontent.com",
+
           "client_type": 3
         }
       ],
       "api_key": [
         {
           "current_key": "AIzaSyBVCJ-MCeMQEKzHIdjOgx2jy-uHFYGkLLg"
+
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+
               "client_id": "947667236306-42o7m8n8ak9khjvtu0u7cn56e47fvk41.apps.googleusercontent.com",
+
               "client_type": 3
             }
           ]
