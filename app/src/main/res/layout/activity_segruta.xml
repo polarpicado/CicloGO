@@ -26,10 +26,12 @@
                 android:layout_margin="13dp"
                 android:padding="13dp"
                 android:text="Segura"
+                android:button="@drawable/radio_background"
                 android:background="@drawable/radio_selector"
                 tools:layout_editor_absoluteX="26dp"
                 android:textColor="@drawable/text_color"
-                tools:layout_editor_absoluteY="70dp" />
+                tools:layout_editor_absoluteY="70dp"
+                />
 
             <RadioButton
                 android:id="@+id/rb_regular"
@@ -38,8 +40,9 @@
                 android:layout_margin="13dp"
                 android:padding="13dp"
                 android:text="Regular"
-                android:textColor="@drawable/text_color"
-                android:background="@drawable/radio_selector"
+                android:button="@drawable/radio_background"
+                android:textColor="@drawable/text_color1"
+                android:background="@drawable/radio_selector1"
                 tools:layout_editor_absoluteX="263dp"
                 tools:layout_editor_absoluteY="70dp" />
 
@@ -50,8 +53,9 @@
                 android:layout_margin="13dp"
                 android:padding="13dp"
                 android:text="Peligrosa"
-                android:textColor="@drawable/text_color"
-                android:background="@drawable/radio_selector"
+                android:button="@drawable/radio_background"
+                android:textColor="@drawable/text_color2"
+                android:background="@drawable/radio_selector2"
                 tools:layout_editor_absoluteX="142dp"
                 tools:layout_editor_absoluteY="70dp" />
         </RadioGroup>
