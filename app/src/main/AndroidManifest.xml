@@ -31,10 +31,15 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
         <activity
             android:name=".menuActivity"
             android:exported="true" >
+        </activity>
+        <activity
+            android:name=".SegrutaActivity"
+            android:exported="false" >
         </activity>
     </application>
 

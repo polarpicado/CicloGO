@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".SegrutaActivity"
     android:background="#DAEDDE"
     android:orientation="vertical"
-    android:layout_gravity="center"
-
-
-    >
+    android:layout_gravity="center">
 
     <RadioGroup
         android:id="@+id/rd_segruta"
@@ -26,24 +24,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
-            android:background="@drawable/radio_selector"
-            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Segura"
-            android:textColor="@drawable/text_color"
+            android:button="@drawable/radio_background"
+            android:background="@drawable/radio_selector"
             tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="70dp" />
+            android:textColor="@drawable/text_color"
+            tools:layout_editor_absoluteY="70dp"
+            />
 
         <RadioButton
             android:id="@+id/rb_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
-            android:background="@drawable/radio_selector"
-            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Regular"
-            android:textColor="@drawable/text_color"
+            android:button="@drawable/radio_background"
+            android:textColor="@drawable/text_color1"
+            android:background="@drawable/radio_selector1"
             tools:layout_editor_absoluteX="263dp"
             tools:layout_editor_absoluteY="70dp" />
 
@@ -52,11 +51,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
-            android:background="@drawable/radio_selector"
-            android:minHeight="48dp"
             android:padding="13dp"
             android:text="Peligrosa"
-            android:textColor="@drawable/text_color"
+            android:button="@drawable/radio_background"
+            android:textColor="@drawable/text_color2"
+            android:background="@drawable/radio_selector2"
             tools:layout_editor_absoluteX="142dp"
             tools:layout_editor_absoluteY="70dp" />
     </RadioGroup>
@@ -84,7 +83,6 @@
         android:ems="10"
         android:hint="Ingrese el nombre de la ruta"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rd_segruta" />
@@ -98,5 +96,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_nomruta" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
