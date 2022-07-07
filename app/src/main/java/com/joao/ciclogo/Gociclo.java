@@ -1,7 +1,5 @@
 package com.joao.ciclogo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
