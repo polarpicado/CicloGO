@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/drawable/boton_auth_personalizado.xml" value="0.3675" />
         <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/drawable/boton_inicial_personalizado.xml" value="0.3675" />
         <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/drawable/ic_left_arrow.xml" value="0.3675" />
-        <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/proyectos/android/CicloGO/app/src/main/res/layout/activity_registrar.xml" value="0.1" />
       </map>
     </option>
   </component>
