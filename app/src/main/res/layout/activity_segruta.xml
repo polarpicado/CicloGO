@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DAEDDE"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+
+
+    >
+
+    <RadioGroup
+        android:id="@+id/rd_segruta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_segruta">
+
+        <RadioButton
+            android:id="@+id/rb_segura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:padding="13dp"
+            android:text="Segura"
+            android:background="@drawable/radio_selector"
+            tools:layout_editor_absoluteX="26dp"
+            android:textColor="@drawable/text_color"
+            tools:layout_editor_absoluteY="70dp" />
+
+        <RadioButton
+            android:id="@+id/rb_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:padding="13dp"
+            android:text="Regular"
+            android:textColor="@drawable/text_color"
+            android:background="@drawable/radio_selector"
+            tools:layout_editor_absoluteX="263dp"
+            tools:layout_editor_absoluteY="70dp" />
+
+        <RadioButton
+            android:id="@+id/rb_peligrosa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:padding="13dp"
+            android:text="Peligrosa"
+            android:textColor="@drawable/text_color"
+            android:background="@drawable/radio_selector"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="70dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/lbl_segruta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:text="SEGURIDAD DE LA RUTA:"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_nomruta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Ingrese el nombre de la ruta"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rd_segruta" />
+
+    <Button
+        android:id="@+id/btn_crearruta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Crear Ruta!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nomruta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
