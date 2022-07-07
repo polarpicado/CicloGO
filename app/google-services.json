@@ -1,34 +1,56 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "686823480150",
     "firebase_url": "https://final-clase-default-rtdb.firebaseio.com",
     "project_id": "final-clase",
     "storage_bucket": "final-clase.appspot.com"
+=======
+    "project_number": "947667236306",
+    "project_id": "ciclogo-56ff1",
+    "storage_bucket": "ciclogo-56ff1.appspot.com"
+>>>>>>> bb763b2036c2513e12b752ba8cd4d38e813ef80d
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:686823480150:android:94888fdd739a042ddad4f7",
+=======
+        "mobilesdk_app_id": "1:947667236306:android:d1d6067f8157adb9edc40b",
+>>>>>>> bb763b2036c2513e12b752ba8cd4d38e813ef80d
         "android_client_info": {
           "package_name": "com.joao.ciclogo"
         }
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
           "client_id": "686823480150-8fqd6isuhhd1ojiir1stjnr64ecbo37d.apps.googleusercontent.com",
+=======
+          "client_id": "947667236306-42o7m8n8ak9khjvtu0u7cn56e47fvk41.apps.googleusercontent.com",
+>>>>>>> bb763b2036c2513e12b752ba8cd4d38e813ef80d
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyBiU8BYjTdPXeNyQ2naggyDHl8pdiiMzvY"
+=======
+          "current_key": "AIzaSyBVCJ-MCeMQEKzHIdjOgx2jy-uHFYGkLLg"
+>>>>>>> bb763b2036c2513e12b752ba8cd4d38e813ef80d
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< HEAD
               "client_id": "686823480150-8fqd6isuhhd1ojiir1stjnr64ecbo37d.apps.googleusercontent.com",
+=======
+              "client_id": "947667236306-42o7m8n8ak9khjvtu0u7cn56e47fvk41.apps.googleusercontent.com",
+>>>>>>> bb763b2036c2513e12b752ba8cd4d38e813ef80d
               "client_type": 3
             }
           ]

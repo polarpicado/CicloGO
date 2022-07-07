@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".RegistrarActivity"
     android:background="#DAEDDE">
-
 
     <Button
         android:id="@+id/button"
@@ -25,17 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
-        android:textStyle="bold"
-        android:textSize="20dp"
+        android:text="REGISTRARSE"
         android:textColor="#47525E"
-        android:text="INICIAR SESIÓN"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
-        android:id="@+id/txt_user"
+        android:id="@+id/editTextTextPersonName2"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -50,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/txt_password"
+        android:id="@+id/editTextTextPassword2"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -61,24 +60,24 @@
         android:textColorHint="#1F2D3D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_user" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
-        android:id="@+id/btn_iniciar"
+        android:id="@+id/btn_iniciar_sesion"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/boton_auth_personalizado"
+        android:backgroundTint="#00ACD7"
         android:fontFamily="@font/roboto"
+        android:text="REGISTRARSE"
+        android:textColor="#DAEDDE"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="INICIAR SESIÓN"
-        android:textColor="#DAEDDE"
-        android:backgroundTint="#00ACD7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -88,17 +87,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_sesion"
         app:srcCompat="@drawable/separator" />
-
-    <TextView
-        android:id="@+id/txt_logeado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="no logeado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
