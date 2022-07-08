@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="#DAEDDE">
+    android:background="#E0E6ED">
 
 
     <Button
@@ -27,7 +27,7 @@
         android:fontFamily="@font/roboto"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="#47525E"
+        android:textColor="#E0E6ED"
         android:text="INICIAR SESIÓN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -89,7 +89,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_iniciar"
-        app:srcCompat="@drawable/separator" />
+        app:srcCompat="@drawable/separator"
+        />
     <Button
         android:id="@+id/btn_iniciar_facebook"
         android:layout_width="350dp"
