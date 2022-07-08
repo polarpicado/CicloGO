@@ -57,10 +57,9 @@ switch (menuItem.getItemId()){
 }
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(menuActivity.this,SegrutaActivity.class);
+                Intent intent= new Intent(menuActivity.this,comentariosActivity.class);
                 startActivity(intent);
                 break;
-
         }
 drawerLayout.closeDrawer(GravityCompat.START);
         return true;

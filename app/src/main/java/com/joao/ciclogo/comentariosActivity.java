@@ -12,16 +12,15 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class SegrutaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class comentariosActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_segruta);
+        setContentView(R.layout.activity_comentarios);
         setToolBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
@@ -48,14 +47,14 @@ public class SegrutaActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SegrutaActivity.this,SegrutaActivity.class);
+            case R.id.menu_nueva_rutas:
+                Intent intent= new Intent(comentariosActivity.this,SegrutaActivity.class);
                 startActivity(intent);
                 break;
         }
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SegrutaActivity.this,comentariosActivity.class);
+                Intent intent= new Intent(comentariosActivity.this,comentariosActivity.class);
                 startActivity(intent);
                 break;
         }
