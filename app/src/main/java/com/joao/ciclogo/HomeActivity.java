@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
         dario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, SegrutaActivity.class);
+                Intent intent = new Intent(HomeActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

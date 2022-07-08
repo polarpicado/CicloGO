@@ -14,8 +14,7 @@
         <item
             android:title="Configuracion"
             android:id="@+id/menu_confi"
-            android:icon="@drawable/setup"
-            />
+            android:icon="@drawable/setup" />
 
 
     </group>

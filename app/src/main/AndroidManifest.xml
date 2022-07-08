@@ -14,22 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CicloGO"
         android:usesCleartextTraffic="true" >
-        <activity
-            android:name=".ListarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SegrutaActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Gociclo"
             android:exported="true"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,6 +33,18 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".menuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ListarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SegrutaActivity"
+            android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBG97rRN_-lJMbxODZCJ0oipmskx5NXeoA"/>
