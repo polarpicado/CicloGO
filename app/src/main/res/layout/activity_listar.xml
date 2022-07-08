@@ -9,7 +9,7 @@
     >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMascotas"
+        android:id="@+id/rv_Rutas"
         android:layout_width="409dp"
         android:layout_height="523dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -72,11 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this,"correcto.",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            Toast.makeText(LoginActivity.this,"Sesión iniciada correctamente.",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginActivity.this,menuActivity.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(LoginActivity.this, " failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, " Fallo al iniciar sesión", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
