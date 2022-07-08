@@ -44,7 +44,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
         }else if(listaRutas.get(position).getPeligrosidad().equals("Regular")){
             holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
         }else {
-            holder.img_peligrosidad.setImageResource(R.drawable.Segura);
+            holder.img_peligrosidad.setImageResource(R.drawable.safe);
         }
         holder.btnEditar.setOnClickListener(view -> {
             Intent intent = new Intent(context,EditarActivity.class);

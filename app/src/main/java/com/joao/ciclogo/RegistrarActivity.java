@@ -55,7 +55,7 @@ public class RegistrarActivity extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email,contra).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
                 Toast.makeText(this,"Registro correcto.",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(RegistrarActivity.this,ListarActivity.class);
+                Intent intent = new Intent(RegistrarActivity.this,menuActivity.class);
                 startActivity(intent);
             }else{
                 if(task.getException() instanceof FirebaseAuthUserCollisionException){

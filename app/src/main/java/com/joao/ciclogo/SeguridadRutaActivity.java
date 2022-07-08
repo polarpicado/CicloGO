@@ -55,7 +55,7 @@ public class SeguridadRutaActivity extends AppCompatActivity implements Navigati
         }
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SeguridadRutaActivity.this,comentariosActivity.class);
+                Intent intent= new Intent(SeguridadRutaActivity.this,MapActivity.class);
                 startActivity(intent);
                 break;
         }
