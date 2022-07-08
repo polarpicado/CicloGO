@@ -2,25 +2,29 @@ package com.joao.ciclogo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class comentariosActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import javax.annotation.Nonnull;
+
+public class SeguridadRutaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comentarios);
+        setContentView(R.layout.activity_seguridad_ruta);
+        obtenerValores();
         setToolBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
@@ -28,14 +32,15 @@ public class comentariosActivity extends AppCompatActivity implements Navigation
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
     }
-    private void setToolBar() {
+    private void setToolBar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
@@ -43,18 +48,17 @@ public class comentariosActivity extends AppCompatActivity implements Navigation
         }
         super.onBackPressed();
     }
-
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@Nonnull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.menu_nueva_rutas:
-                Intent intent= new Intent(comentariosActivity.this,SegrutaActivity.class);
+            case R.id.menu_comentar_ruta:
+                Intent intent= new Intent(SeguridadRutaActivity.this,SeguridadRutaActivity.class);
                 startActivity(intent);
                 break;
         }
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(comentariosActivity.this,comentariosActivity.class);
+                Intent intent= new Intent(SeguridadRutaActivity.this,MapActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -70,5 +74,10 @@ public class comentariosActivity extends AppCompatActivity implements Navigation
                 return true;
         }
         return super.onOptionsItemSelected(item);
+
+    }
+    private void obtenerValores(){
+
     }
 }
+

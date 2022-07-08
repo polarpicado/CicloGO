@@ -51,16 +51,10 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
 
 switch (menuItem.getItemId()){
     case R.id.menu_nueva_rutas:
-        Intent intent= new Intent(menuActivity.this,SegrutaActivity.class);
+        Intent intent= new Intent(menuActivity.this,SeguridadRutaActivity.class);
         startActivity(intent);
         break;
 }
-        switch (menuItem.getItemId()){
-            case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(menuActivity.this,comentariosActivity.class);
-                startActivity(intent);
-                break;
-        }
 drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

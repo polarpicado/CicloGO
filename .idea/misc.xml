@@ -12,6 +12,7 @@
         <entry key="..\:/movil/CicloGO/app/src/main/res/drawable/radio_selected.xml" value="0.2135" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/drawable/ubi_1.xml" value="0.3675" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_comentarios.xml" value="0.14" />
+        <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_crear_mapa.xml" value="0.36666666666666664" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_gociclo.xml" value="0.14" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_home.xml" value="0.36614583333333334" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_listar.xml" value="0.22" />
@@ -20,6 +21,7 @@
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_menu.xml" value="0.18" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_registrar.xml" value="0.36614583333333334" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_segruta.xml" value="0.12" />
+        <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_seguridad_ruta.xml" value="0.36666666666666664" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/activity_slash_ciclo.xml" value="0.1" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/fila.xml" value="0.33" />
         <entry key="..\:/movil/CicloGO/app/src/main/res/layout/header_navigation_drawer.xml" value="0.18" />

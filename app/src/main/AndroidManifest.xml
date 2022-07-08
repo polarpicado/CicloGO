@@ -14,7 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CicloGO"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CrearMapaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SeguridadRutaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menuActivity"
+            android:exported="false" />
         <activity
             android:name=".Gociclo"
             android:exported="true"
@@ -34,21 +54,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-        <activity
-            android:name=".menuActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ListarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SegrutaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".comentariosActivity"
-            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBG97rRN_-lJMbxODZCJ0oipmskx5NXeoA" />
