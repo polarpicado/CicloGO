@@ -18,7 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         asignarReferencias();
         btn_login.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this,SegrutaActivity.class);
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+        });
+        btn_register.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,RegistrarActivity.class);
             startActivity(intent);
         });
     }

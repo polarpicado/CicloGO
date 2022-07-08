@@ -9,11 +9,11 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_return"
         android:layout_width="49dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/ic_left_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,16 +32,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_return" />
 
     <EditText
         android:id="@+id/txt_user"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:fontFamily="@font/roboto"
-        android:hint="Usuario o Correo Electrónico"
+        android:hint="Correo Electrónico"
         android:inputType="textPersonName"
         android:textColorHint="#1F2D3D"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:id="@+id/txt_password"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Contraseña"
@@ -67,14 +67,14 @@
         android:id="@+id/btn_iniciar"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/boton_auth_personalizado"
+        android:backgroundTint="#00ACD7"
         android:fontFamily="@font/roboto"
-        android:textSize="18dp"
-        android:textStyle="bold"
         android:text="INICIAR SESIÓN"
         android:textColor="#DAEDDE"
-        android:backgroundTint="#00ACD7"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,22 +84,65 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_iniciar"
-        app:srcCompat="@drawable/separator"
-        />
-
-    <TextView
-        android:id="@+id/txt_logeado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="no logeado"
+        app:srcCompat="@drawable/separator" />
+    <Button
+        android:id="@+id/btn_iniciar_facebook"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/boton_auth_personalizado"
+        android:backgroundTint="#3B5998"
+        android:fontFamily="@font/roboto"
+        android:drawableLeft="@drawable/facebook_ico"
+        android:paddingLeft="16dp"
+        android:text="INICIAR SESIÓN CON FACEBOOK"
+        android:textColor="#DAEDDE"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btn_iniciar_twitter"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/boton_auth_personalizado"
+        android:backgroundTint="#00ACEE"
+        android:fontFamily="@font/roboto"
+        android:drawableLeft="@drawable/twitter_ico"
+        android:paddingLeft="16dp"
+        android:text="INICIAR SESIÓN CON TWITTER"
+        android:textColor="#DAEDDE"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_facebook" />
+
+    <Button
+        android:id="@+id/btn_iniciar_google"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/boton_auth_personalizado"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/google_ico"
+        android:fontFamily="@font/roboto"
+        android:paddingLeft="16dp"
+        android:text="INICIAR SESIÓN CON GOOGLE"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_twitter" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
