@@ -1,70 +1,93 @@
 package com.joao.ciclogo;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "tagLogin";
-    private FirebaseAuth mAuth;
-    private EditText txt_user, txt_password;
-    private TextView txt_logeado;
-    private Button btn_iniciar;
+    EditText txt_user, txt_password;
+    Button btn_iniciar,btn_return,btn_iniciar_facebook,btn_iniciar_twitter,btn_iniciar_google;
+    FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
-        referencias();
+        firebaseAuth = FirebaseAuth.getInstance();
+        asignarReferencias();
         btn_iniciar.setOnClickListener(view -> {
             logearUsuario();
         });
+        btn_return.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+        });
+        btn_iniciar_facebook.setOnClickListener(view -> {
+            logearUsuarioFacebook();
+        });
+        btn_iniciar_twitter.setOnClickListener(view -> {
+            logearUsuarioTwitter();
+        });
+        btn_iniciar_google.setOnClickListener(view -> {
+            logearUsuarioGoogle();
+        });
     }
-    private void referencias(){
+    private void asignarReferencias(){
         txt_user = findViewById(R.id.txt_user);
         txt_password = findViewById(R.id.txt_password);
-        txt_logeado = findViewById(R.id.txt_logeado);
         btn_iniciar = findViewById(R.id.btn_iniciar);
+        btn_return = findViewById(R.id.btn_return);
+        btn_iniciar_facebook = findViewById(R.id.btn_iniciar_facebook);
+        btn_iniciar_twitter = findViewById(R.id.btn_iniciar_twitter);
+        btn_iniciar_google = findViewById(R.id.btn_iniciar_google);
     }
-
     private void logearUsuario(){
-        String email = txt_user.getText().toString();
-        String password = txt_password.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, password)
+        String email = txt_user.getText().toString().trim();
+        String contra = txt_password.getText().toString().trim();
+
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Ingresa un correo electrónico.",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(contra)) {
+            Toast.makeText(this, "Ingresa una contraseña.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Toast.makeText(this, "Procesando solicitud...", Toast.LENGTH_LONG).show();
+        firebaseAuth.signInWithEmailAndPassword(email, contra)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            Toast.makeText(LoginActivity.this,"correcto.",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            startActivity(intent);
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            Toast.makeText(LoginActivity.this, " failed.", Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }
+    private void logearUsuarioFacebook(){
 
-    private void updateUI(FirebaseUser user) {
-        txt_logeado.setText("logeado --> " + user.getDisplayName());
+    }
+    private void logearUsuarioTwitter(){
+
+    }
+    private void logearUsuarioGoogle() {
+
     }
 }
