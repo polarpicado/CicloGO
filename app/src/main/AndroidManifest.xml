@@ -3,6 +3,8 @@
     package="com.joao.ciclogo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -37,6 +39,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBG97rRN_-lJMbxODZCJ0oipmskx5NXeoA"/>
     </application>
 
 </manifest>
