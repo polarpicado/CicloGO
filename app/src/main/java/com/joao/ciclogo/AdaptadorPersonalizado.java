@@ -40,15 +40,23 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
         holder.lbl_inicio.setText("lat: " + listaRutas.get(position).getLatitud_inicio() + " lon: " + listaRutas.get(position).getLongitud_inicio() + "");
         holder.lbl_fin.setText("lat: " + listaRutas.get(position).getLatitud_final() + " lon: " + listaRutas.get(position).getLogintud_final()+"");
         if(listaRutas.get(position).getPeligrosidad().equals("Peligroso")){
-            holder.img_peligrosidad.setImageResource(R.drawable.DangerZone);
+            holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
         }else if(listaRutas.get(position).getPeligrosidad().equals("Regular")){
             holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
         }else {
             holder.img_peligrosidad.setImageResource(R.drawable.Segura);
         }
         holder.btnEditar.setOnClickListener(view -> {
-            //Falta el editar Activity
             Intent intent = new Intent(context,EditarActivity.class);
+            intent.putExtra("pid",listaRutas.get(position).getId());
+            intent.putExtra("pcreador",listaRutas.get(position).getCreador()+"");
+            intent.putExtra("pnombre",listaRutas.get(position).getNombre()+"");
+            intent.putExtra("platitudinicio",listaRutas.get(position).getLatitud_inicio()+"");
+            intent.putExtra("plogintudinicio",listaRutas.get(position).getLongitud_inicio()+"");
+            intent.putExtra("platitudfinal",listaRutas.get(position).getLatitud_final()+"");
+            intent.putExtra("plongitudfinal",listaRutas.get(position).getLogintud_final()+"");
+            intent.putExtra("ppeligrosidad",listaRutas.get(position).getPeligrosidad()+"");
+            context.startActivity(intent);
         });
     }
 

@@ -48,7 +48,7 @@ public class comentariosActivity extends AppCompatActivity implements Navigation
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.menu_nueva_rutas:
-                Intent intent= new Intent(comentariosActivity.this,SegrutaActivity.class);
+                Intent intent= new Intent(comentariosActivity.this,SeguridadRutaActivity.class);
                 startActivity(intent);
                 break;
         }

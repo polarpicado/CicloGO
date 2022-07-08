@@ -40,6 +40,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.5'
     implementation 'com.google.firebase:firebase-firestore:24.1.2'
     implementation 'com.google.firebase:firebase-auth:21.0.5'
+    implementation 'junit:junit:4.13.2'
+    implementation 'com.google.android.libraries.places:places:2.6.0'
 
 
 

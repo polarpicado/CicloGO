@@ -12,16 +12,16 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class SegrutaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SeguridadRutaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_segruta);
+        setContentView(R.layout.activity_seguridad_ruta);
+        obtenerValores();
         setToolBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
@@ -29,14 +29,15 @@ public class SegrutaActivity extends AppCompatActivity implements NavigationView
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
     }
-    private void setToolBar() {
+    private void setToolBar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
@@ -44,18 +45,17 @@ public class SegrutaActivity extends AppCompatActivity implements NavigationView
         }
         super.onBackPressed();
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SegrutaActivity.this,SegrutaActivity.class);
+                Intent intent= new Intent(SeguridadRutaActivity.this,SeguridadRutaActivity.class);
                 startActivity(intent);
                 break;
         }
         switch (menuItem.getItemId()){
             case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SegrutaActivity.this,comentariosActivity.class);
+                Intent intent= new Intent(SeguridadRutaActivity.this,comentariosActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -71,5 +71,8 @@ public class SegrutaActivity extends AppCompatActivity implements NavigationView
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void obtenerValores(){
+
     }
 }
