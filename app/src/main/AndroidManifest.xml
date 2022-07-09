@@ -15,6 +15,12 @@
         android:theme="@style/Theme.CicloGO"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MapityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapitaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapActivity"
             android:exported="false" />
         <activity
@@ -51,6 +57,7 @@
         <activity
             android:name=".EditarActivity"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBG97rRN_-lJMbxODZCJ0oipmskx5NXeoA" />

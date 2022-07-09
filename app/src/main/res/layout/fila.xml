@@ -83,6 +83,7 @@
                 android:backgroundTint="#D58714"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
+                android:background="@drawable/commet"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditar"
