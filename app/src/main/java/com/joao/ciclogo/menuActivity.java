@@ -17,6 +17,7 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +37,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
     DatabaseReference databaseReference;
     private List<Rutas> listaRutas = new ArrayList<>();
     AdaptadorPersonalizado adaptadorPersonalizado;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
         toolbar = findViewById(R.id.toolbar);
+        mAuth = FirebaseAuth.getInstance();
         navigationView.setNavigationItemSelectedListener(this);
         setToolBar();
         setSupportActionBar(toolbar);
@@ -96,7 +99,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 adaptadorPersonalizado.notifyDataSetChanged();
                 databaseReference.child("Rutas").child(id).removeValue();
             }
-        });
+        }).attachToRecyclerView(rvRutas);
     }
 
     private void setToolBar() {
@@ -122,6 +125,13 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()) {
             case R.id.menu_nueva_rutas:
                 Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
+                startActivity(intent);
+                break;
+        }
+        switch (menuItem.getItemId()) {
+            case R.id.menu_cerrar:
+                mAuth.signOut();
+                Intent intent = new Intent(menuActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
         }

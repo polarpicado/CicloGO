@@ -37,8 +37,15 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
     public void onBindViewHolder(@NonNull AdaptadorPersonalizado.MyViewHolder holder, int position) {
         holder.lbl_NombreRuta.setText(listaRutas.get(position).getNombre());
         holder.lbl_creadorruta.setText(listaRutas.get(position).getCreador());
-        holder.lbl_inicio.setText(listaRutas.get(position).getLatitud_inicio()+" "+listaRutas.get(position).getLongitud_inicio());
-        holder.lbl_fin.setText(listaRutas.get(position).getLatitud_final()+" "+listaRutas.get(position).getLongitud_final());
+        holder.lbl_inicio.setText(listaRutas.get(position).getLatitud_inicio()+" - "+listaRutas.get(position).getLongitud_inicio());
+        holder.lbl_fin.setText(listaRutas.get(position).getLatitud_final()+" - "+listaRutas.get(position).getLongitud_final());
+        if ((listaRutas.get(position).getPeligrosidad()+"").equals("Peligrosa")) {
+            holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
+        }else if ((listaRutas.get(position).getPeligrosidad()+"").equals("Regular")){
+            holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
+        }else{
+            holder.img_peligrosidad.setImageResource(R.drawable.safe);
+        }
         holder.fila.setOnLongClickListener(view -> {
             Intent intent = new Intent(context, EditarActivity.class);
             intent.putExtra("pid", listaRutas.get(position).getId()+"");
@@ -48,13 +55,6 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             intent.putExtra("plongitudinicio", listaRutas.get(position).getLongitud_inicio()+"");
             intent.putExtra("platitudfinal", listaRutas.get(position).getLatitud_final()+"");
             intent.putExtra("plongitudfinal", listaRutas.get(position).getLongitud_final()+"");
-            if (listaRutas.get(position).getPeligrosidad() == "Peligroso") {
-                holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
-            }else if (listaRutas.get(position).getPeligrosidad() == "Regular"){
-                holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
-            }else{
-                holder.img_peligrosidad.setImageResource(R.drawable.safe);
-            }
             context.startActivity(intent);
             return false;
         });

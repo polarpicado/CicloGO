@@ -3,9 +3,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_nueva_rutas"
-            android:title="Crear nueva ruta"
             android:icon="@drawable/add"
-            />
+            android:title="Crear nueva ruta" />
         <item
             android:id="@+id/menu_comentar_ruta"
             android:title="Comentar Ruta"
