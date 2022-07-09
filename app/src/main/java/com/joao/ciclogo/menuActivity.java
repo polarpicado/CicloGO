@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,11 +16,27 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.joao.ciclogo.entidad.Rutas;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class menuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private  Toolbar toolbar;
+    RecyclerView rvRutas;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    private List<Rutas> listaRutas = new ArrayList<>();
+    AdaptadorPersonalizado adaptador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +48,9 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
         toolbar=findViewById(R.id.toolbar);
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
+        asignarReferencias();
+        inicializarFirebase();
+        mostrarRutas();
 
     }
     private void setToolBar() {
@@ -51,7 +74,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
 
 switch (menuItem.getItemId()){
     case R.id.menu_nueva_rutas:
-        Intent intent= new Intent(menuActivity.this,SeguridadRutaActivity.class);
+        Intent intent= new Intent(menuActivity.this,CrearMapaActivity.class);
         startActivity(intent);
         break;
 }
@@ -68,5 +91,48 @@ drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void mostrarRutas(){
+        databaseReference.child("Rutas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaRutas.clear();
+                for (DataSnapshot item:snapshot.getChildren()){
+                    Rutas ruta=item.getValue(Rutas.class);
+                    listaRutas.add(ruta);
+                }
+                adaptador=new AdaptadorPersonalizado(menuActivity.this,listaRutas);
+                rvRutas.setAdapter(adaptador);
+                rvRutas.setLayoutManager(new LinearLayoutManager(menuActivity.this));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void inicializarFirebase(){
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference();
+    }
+    private void asignarReferencias(){
+        rvRutas=findViewById(R.id.rvRutas);
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                final int position=viewHolder.getAdapterPosition();
+                Rutas ruta=listaRutas.get(position);
+                databaseReference.child("Rutas").child(ruta.getId()).removeValue();
+                listaRutas.remove(position);
+                adaptador.notifyDataSetChanged();
+            }
+        }).attachToRecyclerView(rvRutas);
     }
 }
