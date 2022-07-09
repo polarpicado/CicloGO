@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,35 +16,100 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.joao.ciclogo.entidad.Rutas;
 
+import java.util.ArrayList;
+import java.util.List;
 public class menuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private  Toolbar toolbar;
+    private Toolbar toolbar;
+    private RecyclerView rvRutas;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    private List<Rutas> listaRutas = new ArrayList<>();
+    AdaptadorPersonalizado adaptadorPersonalizado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        setToolBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         navigationView.setNavigationItemSelectedListener(this);
+        setToolBar();
         setSupportActionBar(toolbar);
+        asignarReferencias();
+        inicializarFirebase();
+        mostrarRutas();
 
     }
+
+    private void mostrarRutas() {
+        databaseReference.child("Rutas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaRutas.clear();
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    Rutas ruta = item.getValue(Rutas.class);
+                    listaRutas.add(ruta);
+                }
+                adaptadorPersonalizado = new AdaptadorPersonalizado(menuActivity.this, listaRutas);
+                rvRutas.setAdapter(adaptadorPersonalizado);
+                rvRutas.setLayoutManager(new LinearLayoutManager(menuActivity.this));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+    }
+
+    private void asignarReferencias() {
+        rvRutas = findViewById(R.id.rvRutas);
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int pos = viewHolder.getAdapterPosition();
+                String id = listaRutas.get(pos).getId();
+                listaRutas.remove(pos);
+                adaptadorPersonalizado.notifyDataSetChanged();
+                databaseReference.child("Rutas").child(id).removeValue();
+            }
+        });
+    }
+
     private void setToolBar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
         super.onBackPressed();
@@ -48,28 +117,21 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
         switch (menuItem.getItemId()) {
-            case R.id.menu_home:
-                Intent intent = new Intent(menuActivity.this, menuActivity.class);
+            case R.id.menu_nueva_rutas:
+                Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
                 startActivity(intent);
                 break;
         }
-            switch (menuItem.getItemId()) {
-                case R.id.menu_nueva_rutas:
-                    Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
-                    startActivity(intent);
-                    break;
-            }
-
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
-        }
-
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;

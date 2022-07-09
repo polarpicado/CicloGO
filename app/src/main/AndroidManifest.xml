@@ -24,9 +24,6 @@
             android:name=".SeguridadRutaActivity"
             android:exported="false" />
         <activity
-            android:name=".ListarActivity"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
