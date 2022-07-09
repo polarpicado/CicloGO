@@ -37,6 +37,7 @@ public class CrearMapaActivity extends AppCompatActivity implements NavigationVi
                 intent.putExtra("plongitudfinal",txtCrearLongitudFinal.getText().toString()+"");
                 intent.putExtra("platitudinicial",txtCrearLatitudInicial.getText().toString()+"");
                 intent.putExtra("platitudfinal",txtCrearLatitudFinal.getText().toString()+"");
+                startActivity(intent);
             }else{
                 Toast.makeText(CrearMapaActivity.this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
             }

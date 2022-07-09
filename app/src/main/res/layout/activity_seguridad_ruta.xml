@@ -2,21 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAEDDE"
-    android:fitsSystemWindows="true">
+    android:background="#DAEDDE">
 
-    <LinearLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -76,8 +67,8 @@
                 android:id="@+id/lbl_segruta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:text="SEGURIDAD DE LA RUTA:"
                 android:textColor="@color/black"
                 android:textSize="15dp"
@@ -108,22 +99,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_nomruta" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_nomruta"
+                app:layout_constraintVertical_bias="0.174" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/header_navigation_drawer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/nav_options">
-
-    </com.google.android.material.navigation.NavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

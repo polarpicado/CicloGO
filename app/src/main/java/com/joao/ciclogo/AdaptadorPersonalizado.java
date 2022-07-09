@@ -21,6 +21,7 @@ import java.util.List;
 public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPersonalizado.MyViewHolder> {
     private Context context;
     private List<Rutas> listaRutas = new ArrayList<>();
+
     public AdaptadorPersonalizado(Context context,List<Rutas> listaRutas){
         this.context = context;
         this.listaRutas = listaRutas;
@@ -28,20 +29,20 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(this.context);
+        LayoutInflater inflater = LayoutInflater.from(context);
         View vista = inflater.inflate(R.layout.fila,parent,false);
         return new MyViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdaptadorPersonalizado.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressWarnings("RecyclerView") int position) {
         holder.lbl_NombreRuta.setText(listaRutas.get(position).getNombre()+"");
         holder.lbl_creadorruta.setText(listaRutas.get(position).getCreador()+"");
         holder.lbl_inicio.setText("lat: " + listaRutas.get(position).getLatitud_inicio() + " lon: " + listaRutas.get(position).getLongitud_inicio() + "");
-        holder.lbl_fin.setText("lat: " + listaRutas.get(position).getLatitud_final() + " lon: " + listaRutas.get(position).getLogintud_final()+"");
-        if(listaRutas.get(position).getPeligrosidad().equals("Peligroso")){
+        holder.lbl_fin.setText("lat: " + listaRutas.get(position).getLatitud_final() + " lon: " + listaRutas.get(position).getLongitud_final()+"");
+        if((listaRutas.get(position).getPeligrosidad()+"").equals("Peligroso")){
             holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
-        }else if(listaRutas.get(position).getPeligrosidad().equals("Regular")){
+        }else if((listaRutas.get(position).getPeligrosidad()+"").equals("Regular")){
             holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
         }else {
             holder.img_peligrosidad.setImageResource(R.drawable.safe);
@@ -54,7 +55,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             intent.putExtra("platitudinicio",listaRutas.get(position).getLatitud_inicio()+"");
             intent.putExtra("plogintudinicio",listaRutas.get(position).getLongitud_inicio()+"");
             intent.putExtra("platitudfinal",listaRutas.get(position).getLatitud_final()+"");
-            intent.putExtra("plongitudfinal",listaRutas.get(position).getLogintud_final()+"");
+            intent.putExtra("plongitudfinal",listaRutas.get(position).getLongitud_final()+"");
             intent.putExtra("ppeligrosidad",listaRutas.get(position).getPeligrosidad()+"");
             context.startActivity(intent);
         });
@@ -68,7 +69,6 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView lbl_NombreRuta, lbl_creadorruta,lbl_inicio,lbl_fin;
         Button btnEditar;
-        LinearLayout fila;
         ImageView img_peligrosidad;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
