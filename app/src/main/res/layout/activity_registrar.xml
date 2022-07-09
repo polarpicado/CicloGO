@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrarActivity"
-    android:background="#DAEDDE">
+    android:background="@drawable/tree">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="401dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registro"
+        app:srcCompat="@drawable/opps" />
 
     <Button
         android:id="@+id/btn_regresar"
@@ -80,26 +91,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_contra_registro" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registro"
-        app:srcCompat="@drawable/separator" />
-
     <Button
         android:id="@+id/btn_registro_facebook"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/boton_auth_personalizado"
         android:backgroundTint="#3B5998"
-        android:fontFamily="@font/roboto"
         android:drawableLeft="@drawable/facebook_ico"
+        android:fontFamily="@font/roboto"
         android:paddingLeft="16dp"
         android:text="REGISTRARSE CON FACEBOOK"
         android:textColor="#DAEDDE"
@@ -107,7 +107,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/btn_registro_twitter"
