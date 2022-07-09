@@ -3,36 +3,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_home"
-            android:title="Home"
-            android:icon="@drawable/ic_baseline_home_24" />
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
         <item
             android:id="@+id/menu_nueva_rutas"
             android:icon="@drawable/add"
-<<<<<<< HEAD
             android:title="Crear nueva ruta" />
-=======
-            />
-
->>>>>>> ea6449e53277f15f01ec4674d1919a4bf07dc4df
         <item
-            android:title="Mapa"
             android:id="@+id/menu_mapa"
-            android:icon="@drawable/ubi_1" />
+            android:icon="@drawable/ubi_1"
+            android:title="Mapa" />
         <item
-            android:title="Configuracion"
             android:id="@+id/menu_confi"
-            android:icon="@drawable/setup" />
-
-
-
+            android:icon="@drawable/setup"
+            android:title="Configuracion" />
     </group>
 
     <item android:title="Otras opciones">
         <menu>
             <item
-                android:title="Cerrar Sesión"
                 android:id="@+id/menu_cerrar"
-                android:icon="@drawable/power" />
+                android:icon="@drawable/power"
+                android:title="Cerrar Sesión" />
 
 
         </menu>

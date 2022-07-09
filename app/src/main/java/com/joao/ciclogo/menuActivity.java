@@ -38,6 +38,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
     private List<Rutas> listaRutas = new ArrayList<>();
     AdaptadorPersonalizado adaptadorPersonalizado;
     private FirebaseAuth mAuth;
+    boolean toMap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +101,8 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 adaptadorPersonalizado.notifyDataSetChanged();
                 databaseReference.child("Rutas").child(id).removeValue();
             }
-<<<<<<< HEAD
-        }).attachToRecyclerView(rvRutas);
-=======
-        });
 
->>>>>>> ea6449e53277f15f01ec4674d1919a4bf07dc4df
+        }).attachToRecyclerView(rvRutas);
     }
 
     private void setToolBar() {
@@ -135,15 +132,6 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
-<<<<<<< HEAD
-        switch (menuItem.getItemId()) {
-            case R.id.menu_cerrar:
-                mAuth.signOut();
-                Intent intent = new Intent(menuActivity.this, MainActivity.class);
-                startActivity(intent);
-                break;
-        }
-=======
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mapa:
@@ -154,8 +142,6 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
-
->>>>>>> ea6449e53277f15f01ec4674d1919a4bf07dc4df
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

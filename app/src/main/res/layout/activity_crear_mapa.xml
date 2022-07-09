@@ -2,6 +2,7 @@
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,32 +41,31 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese la longitud inicial"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCrearLatitudInicial" />
 
     <EditText
         android:id="@+id/txtCrearLatitudInicial"
         android:layout_width="338dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Ingrese la latitud inicial"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCrearLongitudInicial" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Final"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCrearLatitudInicial" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCrearLongitudInicial" />
 
     <EditText
         android:id="@+id/txtCrearLongitudFinal"
@@ -75,9 +75,9 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese la longitud final"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCrearLatitudFinal" />
 
     <EditText
         android:id="@+id/txtCrearLatitudFinal"
@@ -87,20 +87,20 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese la latitud final"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCrearLongitudFinal" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnCrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Crear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCrearLatitudFinal" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCrearLongitudFinal" />
 
     <TextView
         android:id="@+id/textView9"

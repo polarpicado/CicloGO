@@ -86,7 +86,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditar"
-                app:srcCompat="@drawable/ic_baseline_chat_bubble_24"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView

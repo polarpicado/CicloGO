@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CicloGO"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MapaRutaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapityActivity"
             android:exported="false" />
         <activity
