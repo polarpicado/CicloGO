@@ -51,14 +51,14 @@ public class SeguridadRutaActivity extends AppCompatActivity implements Navigati
     @Override
     public boolean onNavigationItemSelected(@Nonnull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SeguridadRutaActivity.this,SeguridadRutaActivity.class);
+            case R.id.menu_home:
+                Intent intent= new Intent(SeguridadRutaActivity.this,menuActivity.class);
                 startActivity(intent);
                 break;
         }
         switch (menuItem.getItemId()){
-            case R.id.menu_comentar_ruta:
-                Intent intent= new Intent(SeguridadRutaActivity.this,MapActivity.class);
+            case R.id.menu_nueva_rutas:
+                Intent intent= new Intent(SeguridadRutaActivity.this,CrearMapaActivity.class);
                 startActivity(intent);
                 break;
         }

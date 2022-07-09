@@ -48,16 +48,23 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.menu_home:
+                Intent intent = new Intent(menuActivity.this, menuActivity.class);
+                startActivity(intent);
+                break;
+        }
+            switch (menuItem.getItemId()) {
+                case R.id.menu_nueva_rutas:
+                    Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
+                    startActivity(intent);
+                    break;
+            }
 
-switch (menuItem.getItemId()){
-    case R.id.menu_nueva_rutas:
-        Intent intent= new Intent(menuActivity.this,SeguridadRutaActivity.class);
-        startActivity(intent);
-        break;
-}
-drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

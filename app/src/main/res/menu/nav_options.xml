@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/menu_home"
+            android:title="Home"
+            android:icon="@drawable/ic_baseline_home_24" />
+        <item
             android:id="@+id/menu_nueva_rutas"
             android:title="Crear nueva ruta"
             android:icon="@drawable/add"
             />
-        <item
-            android:id="@+id/menu_comentar_ruta"
-            android:title="Comentar Ruta"
-            android:icon="@drawable/commet"
-            />
+
         <item
             android:title="Configuracion"
             android:id="@+id/menu_confi"
