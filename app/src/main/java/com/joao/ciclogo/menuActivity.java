@@ -142,6 +142,13 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
+        switch (menuItem.getItemId()) {
+            case R.id.menu_cerrar:
+                mAuth.signOut();
+                Intent intent = new Intent(menuActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -38,21 +38,21 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorPersonalizado.MyViewHolder holder, int position) {
-        holder.lbl_NombreRuta.setText(listaRutas.get(position).getNombre());
-        holder.lbl_creadorruta.setText(listaRutas.get(position).getCreador());
-        holder.lbl_inicio.setText(listaRutas.get(position).getLatitud_inicio()+" - "+listaRutas.get(position).getLongitud_inicio());
-        holder.lbl_fin.setText(listaRutas.get(position).getLatitud_final()+" - "+listaRutas.get(position).getLongitud_final());
-        if ((listaRutas.get(position).getPeligrosidad()+"").equals("Peligrosa")) {
-            holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
-        }else if ((listaRutas.get(position).getPeligrosidad()+"").equals("Regular")){
-            holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
-        }else{
-            holder.img_peligrosidad.setImageResource(R.drawable.safe);
-        }
-        holder.btnEditar.setOnClickListener(view -> {
-            AlertDialog.Builder ventana = new AlertDialog.Builder(context);
-            ventana.setTitle("Confirmación");
-            ventana.setMessage("¿Desea ver el mapa de la ruta?");
+          holder.lbl_NombreRuta.setText(listaRutas.get(position).getNombre());
+          holder.lbl_creadorruta.setText(listaRutas.get(position).getCreador());
+          holder.lbl_inicio.setText(listaRutas.get(position).getLatitud_inicio()+" | "+listaRutas.get(position).getLongitud_inicio());
+          holder.lbl_fin.setText(listaRutas.get(position).getLatitud_final()+" | "+listaRutas.get(position).getLongitud_final());
+          if ((listaRutas.get(position).getPeligrosidad()+"").equals("Peligrosa")) {
+             holder.img_peligrosidad.setImageResource(R.drawable.danger_zone);
+         }else if ((listaRutas.get(position).getPeligrosidad()+"").equals("Regular")){
+             holder.img_peligrosidad.setImageResource(R.drawable.caution_zone);
+         }else{
+             holder.img_peligrosidad.setImageResource(R.drawable.safe);
+         }
+         holder.btnMapa.setOnClickListener(view -> {
+             AlertDialog.Builder ventana = new AlertDialog.Builder(context);
+             ventana.setTitle("Confirmación");
+             ventana.setMessage("¿Desea ver el mapa de la ruta?");
             ventana.setNegativeButton("Cancelar", null);
             ventana.setPositiveButton("Aceptar", (dialog, which) -> {
                 Intent intent = new Intent(context, MapaRutaActivity.class);
@@ -87,7 +87,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView lbl_NombreRuta, lbl_creadorruta, lbl_inicio, lbl_fin;
         ImageView  img_peligrosidad;
-        ImageButton btnMapa, btnEditar;
+        ImageButton btnMapa;
         LinearLayout fila;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,7 +98,6 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             img_peligrosidad = itemView.findViewById(R.id.img_peligrosidad);
             fila = itemView.findViewById(R.id.fila);
             btnMapa = itemView.findViewById(R.id.btnMapa);
-            btnEditar = itemView.findViewById(R.id.btnEditar);
         }
     }
 }

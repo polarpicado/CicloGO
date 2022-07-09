@@ -49,13 +49,9 @@
     <EditText
         android:id="@+id/txtCrearLatitudInicial"
         android:layout_width="338dp"
-        android:layout_height="45dp"
-<<<<<<< HEAD
-        android:layout_marginStart="16dp"
-=======
+        android:layout_height="48dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
->>>>>>> 19e94c9485486473e6c4cc57e9f60b8290ebbd60
         android:ems="10"
         android:hint="Ingrese la latitud inicial"
         android:inputType="numberSigned|numberDecimal"
