@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
 
-    android:layout_height="200dp">
+    android:layout_height="230dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -33,17 +33,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="25dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/lbl_NombreRuta"
                 android:layout_width="110dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="Nombre de la Ruta"
                 app:layout_constraintStart_toEndOf="@+id/img_peligrosidad"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_creadorruta" />
@@ -52,19 +51,19 @@
                 android:id="@+id/lbl_inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
                 android:text="Latitud"
                 android:textAllCaps="true"
                 android:textColor="#41B74C"
-                app:layout_constraintStart_toEndOf="@+id/img_peligrosidad"
-                app:layout_constraintTop_toBottomOf="@+id/lbl_NombreRuta" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_peligrosidad" />
 
             <ImageButton
                 android:id="@+id/btnEditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="#66bb6a"
                 android:minHeight="48dp"
@@ -75,13 +74,13 @@
 
             <ImageButton
                 android:id="@+id/btnComentar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="#D58714"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditar"
                 app:srcCompat="@drawable/ic_baseline_chat_bubble_24"
@@ -91,12 +90,12 @@
                 android:id="@+id/lbl_fin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
                 android:text="Latitud"
                 android:textAllCaps="true"
                 android:textColor="#F95F62"
-                app:layout_constraintStart_toEndOf="@+id/img_peligrosidad"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_inicio" />
 
             <TextView
@@ -104,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="35dp"
                 android:text="Creador de ruta"
 
                 app:layout_constraintStart_toEndOf="@+id/img_peligrosidad"
