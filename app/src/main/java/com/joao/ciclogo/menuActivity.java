@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
@@ -27,7 +28,6 @@ import com.joao.ciclogo.entidad.Rutas;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class menuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -84,6 +84,7 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void asignarReferencias() {
+
         rvRutas = findViewById(R.id.rvRutas);
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
             @Override
@@ -99,7 +100,12 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 adaptadorPersonalizado.notifyDataSetChanged();
                 databaseReference.child("Rutas").child(id).removeValue();
             }
+<<<<<<< HEAD
         }).attachToRecyclerView(rvRutas);
+=======
+        });
+
+>>>>>>> ea6449e53277f15f01ec4674d1919a4bf07dc4df
     }
 
     private void setToolBar() {
@@ -122,12 +128,14 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+
         switch (menuItem.getItemId()) {
             case R.id.menu_nueva_rutas:
                 Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
                 startActivity(intent);
                 break;
         }
+<<<<<<< HEAD
         switch (menuItem.getItemId()) {
             case R.id.menu_cerrar:
                 mAuth.signOut();
@@ -135,6 +143,19 @@ public class menuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
+=======
+
+        switch (menuItem.getItemId()) {
+            case R.id.menu_mapa:
+                Intent intent = new Intent(menuActivity.this, MapityActivity.class);
+                intent.putExtra("latitud","-12.06085");
+                intent.putExtra("longitud","-77.0464019");
+                intent.putExtra("titulo","CICLO GO");
+                startActivity(intent);
+                break;
+        }
+
+>>>>>>> ea6449e53277f15f01ec4674d1919a4bf07dc4df
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
