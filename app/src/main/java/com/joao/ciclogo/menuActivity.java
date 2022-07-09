@@ -30,79 +30,40 @@ import java.util.List;
 public class menuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private  Toolbar toolbar;
-    RecyclerView rvRutas;
+    private Toolbar toolbar;
+    private RecyclerView rvRutas;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private List<Rutas> listaRutas = new ArrayList<>();
-    AdaptadorPersonalizado adaptador;
-
+    AdaptadorPersonalizado adaptadorPersonalizado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        setToolBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navview);
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         navigationView.setNavigationItemSelectedListener(this);
+        setToolBar();
         setSupportActionBar(toolbar);
         asignarReferencias();
         inicializarFirebase();
         mostrarRutas();
 
     }
-    private void setToolBar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-    @Override
-    public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
-            super.onBackPressed();
-        }
-        super.onBackPressed();
-    }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-switch (menuItem.getItemId()){
-    case R.id.menu_nueva_rutas:
-        Intent intent= new Intent(menuActivity.this,CrearMapaActivity.class);
-        startActivity(intent);
-        break;
-}
-drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()){
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    private void mostrarRutas(){
+    private void mostrarRutas() {
         databaseReference.child("Rutas").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listaRutas.clear();
-                for (DataSnapshot item:snapshot.getChildren()){
-                    Rutas ruta=item.getValue(Rutas.class);
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    Rutas ruta = item.getValue(Rutas.class);
                     listaRutas.add(ruta);
                 }
-                adaptador=new AdaptadorPersonalizado(menuActivity.this,listaRutas);
-                rvRutas.setAdapter(adaptador);
+                adaptadorPersonalizado = new AdaptadorPersonalizado(menuActivity.this, listaRutas);
+                rvRutas.setAdapter(adaptadorPersonalizado);
                 rvRutas.setLayoutManager(new LinearLayoutManager(menuActivity.this));
             }
 
@@ -112,14 +73,16 @@ drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
     }
-    private void inicializarFirebase(){
+
+    private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
-        firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
-    private void asignarReferencias(){
-        rvRutas=findViewById(R.id.rvRutas);
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+
+    private void asignarReferencias() {
+        rvRutas = findViewById(R.id.rvRutas);
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -127,12 +90,53 @@ drawerLayout.closeDrawer(GravityCompat.START);
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                final int position=viewHolder.getAdapterPosition();
-                Rutas ruta=listaRutas.get(position);
-                databaseReference.child("Rutas").child(ruta.getId()).removeValue();
-                listaRutas.remove(position);
-                adaptador.notifyDataSetChanged();
+                int pos = viewHolder.getAdapterPosition();
+                String id = listaRutas.get(pos).getId();
+                listaRutas.remove(pos);
+                adaptadorPersonalizado.notifyDataSetChanged();
+                databaseReference.child("Rutas").child(id).removeValue();
             }
-        }).attachToRecyclerView(rvRutas);
+        });
+    }
+
+    private void setToolBar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()) {
+            case R.id.menu_nueva_rutas:
+                Intent intent = new Intent(menuActivity.this, CrearMapaActivity.class);
+                startActivity(intent);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

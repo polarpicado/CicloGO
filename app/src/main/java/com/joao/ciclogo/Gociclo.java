@@ -17,7 +17,7 @@ public class Gociclo extends Activity {
         TimerTask tarea= new TimerTask(){
             @Override
             public void run(){
-            Intent intent= new Intent(Gociclo.this,MainActivity.class);
+            Intent intent= new Intent(Gociclo.this,menuActivity.class);
             startActivity(intent);
             finish();
             }
