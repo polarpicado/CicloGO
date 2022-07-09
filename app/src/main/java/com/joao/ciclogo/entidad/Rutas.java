@@ -7,21 +7,21 @@ public class Rutas {
     private String latitud_inicio;
     private String longitud_inicio;
     private String latitud_final;
-    private String logintud_final;
+    private String longitud_final;
     private String peligrosidad;
 
-    public Rutas() {
-    }
-
-    public Rutas(String id, String creador, String nombre, String latitud_inicio, String longitud_inicio, String latitud_final, String logintud_final, String peligrosidad) {
+    public Rutas(String id, String creador, String nombre, String latitud_inicio, String longitud_inicio, String latitud_final, String longitud_final, String peligrosidad) {
         this.id = id;
         this.creador = creador;
         this.nombre = nombre;
         this.latitud_inicio = latitud_inicio;
         this.longitud_inicio = longitud_inicio;
         this.latitud_final = latitud_final;
-        this.logintud_final = logintud_final;
+        this.longitud_final = longitud_final;
         this.peligrosidad = peligrosidad;
+    }
+
+    public Rutas() {
     }
 
     public String getId() {
@@ -72,12 +72,12 @@ public class Rutas {
         this.latitud_final = latitud_final;
     }
 
-    public String getLogintud_final() {
-        return logintud_final;
+    public String getLongitud_final() {
+        return longitud_final;
     }
 
-    public void setLogintud_final(String logintud_final) {
-        this.logintud_final = logintud_final;
+    public void setLongitud_final(String longitud_final) {
+        this.longitud_final = longitud_final;
     }
 
     public String getPeligrosidad() {
